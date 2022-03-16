@@ -22,6 +22,6 @@ function calculateEntry(entrants) {
   const getPeople = Object.values(list);
   const result = (getPeople[0] * child) + (getPeople[1] * adult) + (getPeople[2] * senior);
   return result;
-};
+}
 
 module.exports = { calculateEntry, countEntrants };
