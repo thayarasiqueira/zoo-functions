@@ -12,17 +12,17 @@ const { employees } = data;
 //   throw new Error('teste')
 // } else {
 
-//OBS só falta implementar o erro corretamente, o resto ja funciona
+// OBS só falta implementar o erro corretamente, o resto ja funciona
 
 function isManager(id) {
-const managers = employees.map((element) => `${element.managers}`)
-return managers.some((e) => e.includes(id));
+  const managers = employees.map((element) => `${element.managers}`);
+  return managers.some((e) => e.includes(id));
 }
 
 function getRelatedEmployees(managerId) {
-  const obj = employees.filter(({managers}) => managers.includes(managerId));
-  const newObj = obj.map((element) => `${element.firstName} ${element.lastName}`)
-  return newObj; 
+  const obj = employees.filter(({ managers }) => managers.includes(managerId));
+  const newObj = obj.map((element) => `${element.firstName} ${element.lastName}`);
+  return newObj;
 }
 
 console.log(getRelatedEmployees('9e7d4524-363c-416a-8759-8aa7e50c0992'));

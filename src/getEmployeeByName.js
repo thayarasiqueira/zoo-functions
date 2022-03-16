@@ -5,7 +5,7 @@ const { employees } = data;
 console.log(employees);
 
 function getEmployeeByName(employeeName) {
-    return employees.filter(({ firstName, lastName }) =>
+  return employees.filter(({ firstName, lastName }) =>
     firstName === employeeName || lastName === employeeName);
 }
 
