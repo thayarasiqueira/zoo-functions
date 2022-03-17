@@ -8,7 +8,7 @@ function getOldestFromFirstSpecies(idEmployee) {
   const { responsibleFor } = employee;
   const animals = species.find(({ id }) => id === responsibleFor[0]);
   const resident = animals.residents;
-  const animalAge = resident.reduce((prev, curr) => (curr.age > prev ? curr.age : prev, 0));
+  const animalAge = resident.reduce((prev, curr) => (curr.age > prev ? curr.age : prev), 0);
   const animal = resident.filter(({ age }) => age === animalAge);
   const [{ name, sex, age }] = animal;
   const result = [name, sex, age];
