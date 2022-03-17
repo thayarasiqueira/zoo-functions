@@ -5,7 +5,7 @@ const { species } = data;
 function getSpeciesByIds(...ids) {
   if (!ids) {
     return [];
-  } 
+  }
   return species.filter(({ id }) => id === ids[0] || id === ids[1]);
 }
 
