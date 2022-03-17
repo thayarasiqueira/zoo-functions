@@ -21,8 +21,8 @@ function isManager(id) {
 
 function getRelatedEmployees(managerId) {
   const obj = employees.filter(({ managers }) => managers.includes(managerId));
-  const newObj = obj.map((element) => `${element.firstName} ${element.lastName}`)
-  return newObj; 
+  const newObj = obj.map((element) => `${element.firstName} ${element.lastName}`);
+  return newObj;
 }
 
 console.log(getRelatedEmployees('9e7d4524-363c-416a-8759-8aa7e50c0992'));
