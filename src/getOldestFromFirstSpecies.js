@@ -13,6 +13,6 @@ function getOldestFromFirstSpecies(idEmployee) {
   const [{ name, sex, age }] = animal;
   const result = [name, sex, age];
   return result;
-};
+}
 
 module.exports = getOldestFromFirstSpecies;
