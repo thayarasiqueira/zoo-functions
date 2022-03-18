@@ -11,94 +11,48 @@ function getAnimalMap(options) {
   .map(({ name }) => name);
   const SW = species.filter(({ location }) => location === 'SW')
   .map(({ name }) => name);
-  const allAnimals = species.reduce((acc, curr) => [...acc, curr.name, curr.residents], [])
-  let lions = allAnimals.slice(0, 2)
-  lions = lions[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let tigers = allAnimals.slice(2, 4);
-  tigers = tigers[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let bears = allAnimals.slice(4, 6);
-  bears = bears[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let penguins = allAnimals.slice(6, 8);
-  penguins = penguins[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let otters = allAnimals.slice(8, 10);
-  otters = otters[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let frogs = allAnimals.slice(10, 12);
-  frogs = frogs[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let snakes = allAnimals.slice(12, 14);
-  snakes = snakes[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let elephants = allAnimals.slice(14, 16);
-  elephants = elephants[1].reduce((acc, curr) => [...acc, curr.name], [])
-  let giraffes = allAnimals.slice(16, 18);
-  giraffes = giraffes[1].reduce((acc, curr) => [...acc, curr.name], [])
   if (!options || options.includeNames !== true) {
     return { NE, NW, SE, SW,};
-  } else if (options.includeNames === true && options.sorted === true && options.sex !== undefined) {
-    const allAnimals = species.reduce((acc, curr) => [...acc, curr.name, curr.residents], [])
-    const lionGender = allAnimals[1].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], []);
-    const tigerGender = allAnimals[3].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const bearGender = allAnimals[5].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const penguinGender = allAnimals[7].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const otterGender = allAnimals[9].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const frogGender = allAnimals[11].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const snakeGender = allAnimals[13].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const elephantGender = allAnimals[15].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])
-    const giraffeGender = allAnimals[17].filter(({sex}) => sex === options.sex)
-    .reduce((acc, curr) => [...acc, curr.name], [])    
-    lionGender.sort();
-    giraffeGender.sort();
-    tigerGender.sort();
-    bearGender.sort();
-    elephantGender.sort();
-    penguinGender.sort();
-    otterGender.sort();
-    frogGender.sort();
-    snakeGender.sort();
-    console.log(allAnimals);
-    return { NE: [{lions:lionGender},{giraffes: giraffeGender}], NW: [{tigers:tigerGender},{bears:bearGender},{elephants:elephantGender}], SE: [{penguins:penguinGender},{otters:otterGender}], SW:[{frogs:frogGender},{snakes:snakeGender}],}
-    } else if (options.includeNames === true && options.sex !== undefined) {
-      const lionGender = allAnimals[1].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], []);
-      const tigerGender = allAnimals[3].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const bearGender = allAnimals[5].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const penguinGender = allAnimals[7].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const otterGender = allAnimals[9].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const frogGender = allAnimals[11].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const snakeGender = allAnimals[13].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const elephantGender = allAnimals[15].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])
-      const giraffeGender = allAnimals[17].filter(({sex}) => sex === options.sex)
-      .reduce((acc, curr) => [...acc, curr.name], [])   
+  }
+  const allAnimals = species.reduce((acc, curr) => [...acc, curr.residents], []);
+  const lions = allAnimals[0].reduce((acc, curr) => [...acc, curr.name], []);
+  const tigers = allAnimals[1].reduce((acc, curr) => [...acc, curr.name], []);
+  const bears = allAnimals[2].reduce((acc, curr) => [...acc, curr.name], []);
+  const penguins = allAnimals[3].reduce((acc, curr) => [...acc, curr.name], []);
+  const otters = allAnimals[4].reduce((acc, curr) => [...acc, curr.name], []);
+  const frogs = allAnimals[5].reduce((acc, curr) => [...acc, curr.name], []);
+  const snakes = allAnimals[6].reduce((acc, curr) => [...acc, curr.name], []);
+  const elephants = allAnimals[7].reduce((acc, curr) => [...acc, curr.name], []);
+  const giraffes = allAnimals[8].reduce((acc, curr) => [...acc, curr.name], []);
+  const lionGender = allAnimals[0].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const tigerGender = allAnimals[1].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const bearGender = allAnimals[2].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const penguinGender = allAnimals[3].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const otterGender = allAnimals[4].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const frogGender = allAnimals[5].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const snakeGender = allAnimals[6].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const elephantGender = allAnimals[7].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []);
+  const giraffeGender = allAnimals[8].filter(({sex}) => sex === options.sex)
+  .reduce((acc, curr) => [...acc, curr.name], []) ; 
+ if (options.includeNames === true && options.sorted === true && options.sex !== undefined) {  
+    return { NE: [{lions:lionGender.sort()},{giraffes: giraffeGender.sort()}], NW: [{tigers:tigerGender.sort()},{bears:bearGender.sort()},{elephants:elephantGender.sort()}], SE: [{penguins:penguinGender.sort()},{otters:otterGender.sort()}], SW:[{frogs:frogGender.sort()},{snakes:snakeGender.sort()}],};
+    } else if (options.includeNames === true && options.sex !== undefined) { 
       return { NE: [{lions:lionGender},{giraffes: giraffeGender}], NW: [{tigers:tigerGender},{bears:bearGender},{elephants:elephantGender}], SE: [{penguins:penguinGender},{otters:otterGender}], SW:[{frogs:frogGender},{snakes:snakeGender}]}
      } else if (options.includeNames === true && options.sorted === true) {
-    lions.sort();
-    giraffes.sort();
-    tigers.sort();
-    bears.sort();
-    elephants.sort();
-    penguins.sort();
-    otters.sort();
-    frogs.sort();
-    snakes.sort();
-    return { NE: [{lions,},{giraffes,}], NW: [{tigers,},{bears,},{elephants,}], SE: [{penguins,},{otters,}], SW:[{frogs,},{snakes,}],}
+    return { NE: [{lions:lions.sort(),},{giraffes:giraffes.sort(),}], NW: [{tigers:tigers.sort(),},{bears:bears.sort(),},{elephants:elephants.sort(),}], SE: [{penguins:penguins.sort(),},{otters:otters.sort(),}], SW:[{frogs:frogs.sort(),},{snakes:snakes.sort(),}],};
   } else if (options.includeNames === true) {
-    return { NE: [{lions,},{giraffes,}], NW: [{tigers,},{bears,},{elephants,}], SE: [{penguins,},{otters,}], SW:[{frogs,},{snakes,}],}
+    return { NE: [{lions,},{giraffes,}], NW: [{tigers,},{bears,},{elephants,}], SE: [{penguins,},{otters,}], SW:[{frogs,},{snakes,}],};
   }
-}
+};
 
-console.log(getAnimalMap({ includeNames: true, sex: 'female',sorted: true}));
+console.log(getAnimalMap({ includeNames: true }));
 
 module.exports = getAnimalMap;
