@@ -25,12 +25,12 @@ function allEmployees() {
 function getEmployeesCoverage(employee) {
   if (!employee) {
     return allEmployees();
-  };
+  }
   if (!employees.some((e) => e.name === employee.name || e.id === employee.id)) {
     throw new Error('Informações inválidas');
   }
-  const obj = employees.find(({ firstName, lastName, id }) => 
-  employee.name === firstName || employee.name === lastName || employee.id === id);
+  const obj = employees.find(({ firstName, lastName, id }) =>
+    employee.name === firstName || employee.name === lastName || employee.id === id);
   const { id, firstName, lastName, responsibleFor } = obj;
   const result = {
     id,
@@ -38,10 +38,9 @@ function getEmployeesCoverage(employee) {
     species: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
       .map(({ name }) => name),
     locations: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
-      .map(({ location }) => location)
+      .map(({ location }) => location),
   };
   return result;
 }
 
-console.log(getEmployeesCoverage({ name: 'Shaa'}));
 module.exports = getEmployeesCoverage;
