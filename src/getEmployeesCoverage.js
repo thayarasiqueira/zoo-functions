@@ -15,24 +15,30 @@ function allEmployees() {
   return employees.map(({ id, firstName, lastName, responsibleFor }) => ({
     id,
     fullName: `${firstName} ${lastName}`,
-    species: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids)).map(({ name }) => name),
-    locations: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids)).map(({ location }) => location)
-  }))
+    species: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
+      .map(({ name }) => name),
+    locations: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
+      .map(({ location }) => location),
+  }));
 }
 
 function getEmployeesCoverage(employee) {
   if (!employee) {
     return allEmployees();
+  };
+  if (!employees.some((e) => e.name === employee.name || e.id === employee.id)) {
+    throw new Error('Informações inválidas');
   }
-  const parameter = Object.values(employee).toString();
-  const obj = employees.find(({ firstName, lastName, id }) => parameter === firstName || parameter === lastName || parameter === id)
-  if (obj === undefined) throw new Error('Informações inválidas')
+  const obj = employees.find(({ firstName, lastName, id }) => 
+  employee.name === firstName || employee.name === lastName || employee.id === id);
   const { id, firstName, lastName, responsibleFor } = obj;
   const result = {
     id,
     fullName: `${firstName} ${lastName}`,
-    species: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids)).map(({ name }) => name),
-    locations: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids)).map(({ location }) => location)
+    species: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
+      .map(({ name }) => name),
+    locations: species.filter((animal) => responsibleFor.find((ids) => animal.id === ids))
+      .map(({ location }) => location)
   };
   return result;
 }
