@@ -35,6 +35,4 @@ function getEmployeesCoverage(employee) {
   return result;
 }
 
-console.log(getEmployeesCoverage({name: 'shane'}));
-
 module.exports = getEmployeesCoverage;
