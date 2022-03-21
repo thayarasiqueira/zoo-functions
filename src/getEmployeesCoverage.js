@@ -4,7 +4,10 @@ const { employees } = data;
 const { species } = data;
 
 function isValid(emp) {
-  if (!employees.some((e) => e.id === emp.id || e.firstName === emp.name || e.lastName === emp.name)) throw new Error('Informações inválidas');
+  if (!employees.some((e) => e.id === emp.id
+  || e.firstName === emp.name || e.lastName === emp.name)) {
+    throw new Error('Informações inválidas');
+  }
 }
 
 function allEmployees() {
@@ -34,7 +37,5 @@ function getEmployeesCoverage(employee) {
   };
   return result;
 }
-
-console.log(getEmployeesCoverage({ name: 'Sharonda' }));
 
 module.exports = getEmployeesCoverage;
