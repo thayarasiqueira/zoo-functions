@@ -54,6 +54,4 @@ function getSchedule(scheduleTarget) {
   return availability;
 }
 
-console.log(getSchedule('Monday'));
-
 module.exports = getSchedule;
